@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&family=Handjet:wght@800&family=Varela+Round&display=swap');
+
+body {
+ text-align:center;
+  background-image: url("https://i.pinimg.com/originals/09/05/f9/0905f995ecd12036b7e5c842b06f2a48.jpg");
+ background-size: cover;
+color: #264663;
+}
+main {
+  margin: auto;
+  width: 80%;
+/*   background-color: grey; */
+}
+h1 {
+  border-radius: 1rem;
+  background: linear-gradient(0.25turn, #9ECAF0, #5DA8EB, #1770BF);
+  box-shadow: 1px 1px 2px black, 0 0 25px #BBDEFD, 0 0 5px #1770BF;
+  font-family: "Varela Round", sans-serif;
+  font-style: italic;
+  font-size: 5vw;
+}
+input.letter-input {
+  width: 1rem;
+  text-align: center;
+  font-size: 4vw;
+  width: calc(80% / 5);
+  background-color: #ADD0EF;
+  box-shadow: 1px 1px 2px black, 0 0 25px #BBDEFD, 0 0 5px #1770BF;
+  margin: .5vw;
+}
+
+table {
+  margin: 2rem auto;
+  vertial-align: top;
+  border: 1px dashed black;
+  background-color: #ADD0EF;
+  box-shadow: 1px 1px 2px black, 0 0 25px #BBDEFD, 0 0 5px #1770BF;
+}
+
+th, td {
+  padding: 2rem;
+  border: 1px dashed blue;
+  vertical-align: top;
+} 
+
+/* table {
+  text-align: center;
+  border: 1px solid black;
+  margin: auto;
+}
+
+
+
+/* form > input {
+  width:1rem;
+} */
+    </style>
+</head>
+<body>
+
+    <main>
+  
+        <h1>guess the word!</h1>
+        
+        
+        <form id="password-form">
+        <!-- the inputs -->
+        <!-- <input class="letter-input" type="text" maxLength="1"></input>
+        <input class="letter-input" type="text" maxLength="1">
+        <input class="letter-input" type="text" maxLength="1">
+        <input class="letter-input" type="text" maxLength="1">
+        <input class="letter-input" type="text" maxLength="1"> -->
+        </form>
+        
+        <table>
+          <thead>
+            <tr>
+              <th> wrong:</th>
+              <th> wrong:</th>
+              <th> wrong:</th>
+              <th> wrong:</th>
+              <th> wrong:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>data 1</td>
+              <td> data 2</td>
+              <td> data 3</td>
+              <td> data 4</td>
+              <td> data 5</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        </main>
+
+    <script>
+const passwordForm = document.querySelector("#password-form");
+
+let phrase = "cinco";
+let index = 0;
+
+for (let char of phrase) {
+  console.log(char);
+  console.log(index);
+  const letterInput = document.createElement('input');
+  letterInput.type = "text";
+  letterInput.classList.add("letter-input");
+  letterInput.maxLength = "1";
+  letterInput.id = index.toString();
+  passwordForm.appendChild(letterInput);
+  index++;
+}
+
+passwordForm.addEventListener("change", function(event) {
+ const thisInput = event.target;
+ const guess = thisInput.value;
+ console.log(thisInput);
+ console.log(guess);
+ 
+  if (guess === phrase[thisInput.id]) {
+    console.log("you guessed right!");
+  } else {
+    console.log("no soup for you!!!!")
+  }
+})
+    </script>
+</body>
+</html>
